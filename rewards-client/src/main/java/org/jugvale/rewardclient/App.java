@@ -20,6 +20,18 @@ import javafx.scene.text.Font;
 import javafx.stage.Stage;
 
 public class App extends Application {
+	
+	private static final String SERVER_URL_LOCAL = "http://localhost:8080/business-central";
+	private static final String SERVER_URL_DES = "http://slnxredesen01.alca.es.sopra:8080/business-central";
+	
+	private static final String USERNAME_ADMIN = "rest";
+	private static final String PASSWORD_ADMIN = "rest.12345";
+	
+	private static final String USERNAME_PM = "juanma";
+	private static final String PASSWORD_PM = "juanma.12345";
+	
+	private static final String USERNAME_HR = "ana";
+	private static final String PASSWORD_HR = "ana.12345";
 
 	static RewardService service;
 	
@@ -34,6 +46,28 @@ public class App extends Application {
 
 	public static void main(String[] args) throws Exception {
 		service = RewardService.getInstance();
+		
+		String jbpmUrl = System.getProperty("jbpmUrl");		
+		if (jbpmUrl == null)  {
+			jbpmUrl = SERVER_URL_DES;
+		}
+		
+		String username = System.getProperty("username");		
+		if (username == null)  {
+			username = USERNAME_ADMIN;
+		}
+		
+		String password = System.getProperty("password");
+		if (password == null) {
+			password = PASSWORD_ADMIN;
+		}
+		
+		try {
+			service.connect(jbpmUrl, username, password);
+		} catch (Exception e) {
+			System.err.println("Error connecting: "+ e.getMessage());
+		}
+		
 		launch(args);
 	}
 
@@ -41,7 +75,7 @@ public class App extends Application {
 	public void start(Stage stage) throws Exception {
 		ACCORDION_ACTIONS = new Accordion(giveReward(), tasks(),
 				history());
-		Label lblTitle = new Label("Rewards APP");
+		Label lblTitle = new Label("Rewards APP ["+ service.getUsername()+"]");
 		lblTitle.setFont(Font.font(25));
 		Scene scene = new Scene(new VBox(lblTitle, ACCORDION_ACTIONS), 700, 600);
 		stage.setScene(scene);

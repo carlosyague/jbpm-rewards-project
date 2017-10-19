@@ -25,16 +25,15 @@ public class RewardService {
 
 	
 	// jBPM Process and Project constants
-	private final String P_EMPLOYEE = "employeeName";
-	private final String P_RESULT = "result";
-	private final String T_APPROVAL_VAR = "_approval";
-	private final String LANG = "en-UK";
-	private final String DEPLOYMENT_ID = "example:rewards-project:1.0";
-	private final String USERNAME = "jesuino";
-	private final String PASSWORD = "redhat2014!";
-	private final String PROCESS_ID = "com.sample.rewards-basic";
-	private final String SERVER_URL = "http://localhost:8080/jbpm-console";
-	
+	private static final String P_EMPLOYEE = "employeeName";
+	private static final String P_RESULT = "result";
+	private static final String T_APPROVAL_VAR = "_approval";
+	private static final String LANG = "en-UK";
+	private static final String DEPLOYMENT_ID = "example:rewards-project:1.0";
+	private static final String PROCESS_ID = "com.sample.rewards-basic";
+
+	private String username;
+					
 	// jBPM classes
 	private RuntimeEngine engine;
 	private KieSession ksession;
@@ -42,11 +41,23 @@ public class RewardService {
 	private AuditService auditService;
 
 	private static RewardService instance;
+	
+	public static RewardService getInstance() {
+		if (Objects.isNull(instance))
+			instance = new RewardService();
+		return instance;
+	}
 
-	private RewardService() throws MalformedURLException {
+
+	private RewardService() {
+		
+	}
+	
+	public void connect(String serverUrl, String username, String password) throws MalformedURLException {
+		this.username = username;
 		engine = RemoteRuntimeEngineFactory.newRestBuilder()
-				.addDeploymentId(DEPLOYMENT_ID).addUserName(USERNAME)
-				.addPassword(PASSWORD).addUrl(new URL(SERVER_URL)).build();
+				.addDeploymentId(DEPLOYMENT_ID).addUserName(username)
+				.addPassword(password).addUrl(new URL(serverUrl)).build();
 		taskService = engine.getTaskService();
 		ksession = engine.getKieSession();
 		auditService = engine.getAuditService();
@@ -55,7 +66,7 @@ public class RewardService {
 	public List<RewardTask> getTasks() {
 		// retrieve all tasks since the USERNAME should be in groups PM and HR
 		List<RewardTask> tasks = taskService
-				.getTasksAssignedAsPotentialOwner(USERNAME, LANG)
+				.getTasksAssignedAsPotentialOwner(username, LANG)
 				.stream()
 				.map(t -> {
 					RewardTask rt = new RewardTask();
@@ -71,9 +82,9 @@ public class RewardService {
 	public void doTask(long taskId, boolean approve) {
 		Map<String, Object> params = new HashMap<>();
 		params.put(T_APPROVAL_VAR, approve);
-		taskService.claim(taskId, USERNAME);
-		taskService.start(taskId, USERNAME);
-		taskService.complete(taskId, USERNAME, params);
+		taskService.claim(taskId, username);
+		taskService.start(taskId, username);
+		taskService.complete(taskId, username, params);
 	}
 
 	public void startRewardProcess(String employeeName) {
@@ -93,14 +104,8 @@ public class RewardService {
 
 	public void clearHistory() {
 		auditService.clear();
-	}
-
-	public static RewardService getInstance() throws MalformedURLException {
-		if (Objects.isNull(instance))
-			instance = new RewardService();
-		return instance;
-	}
-
+	}	
+	
 	private String getVariableValue(long piid, String varName) {
 		String value = null;
 		List<? extends VariableInstanceLog> variables = auditService
@@ -139,6 +144,10 @@ public class RewardService {
 			result = "reward still waiting for approval";
 		String summary = "Reward process for employee '%s' is %s and result is '%s'.";
 		return String.format(summary, employee, status, result);
+	}
+	
+	public String getUsername() {
+		return username;
 	}
 
 }
