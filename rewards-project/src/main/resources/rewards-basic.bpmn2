@@ -222,7 +222,7 @@ kcontext.setVariable(&quot;result&quot;,&quot;Reward *NOT* Approved!&quot;);</bp
           <drools:metaValue><![CDATA[not approved]]></drools:metaValue>
         </drools:metaData>
       </bpmn2:extensionElements>
-      <bpmn2:conditionExpression xsi:type="bpmn2:tFormalExpression" id="_EfYw4ItbEeWVyOhEM94E_w">return  KieFunctions.isFalse(pmApproval) || KieFunctions.isFalse(hrApproval);</bpmn2:conditionExpression>
+      <bpmn2:conditionExpression xsi:type="bpmn2:tFormalExpression" id="_EfYw4ItbEeWVyOhEM94E_w">return  !KieFunctions.isTrue(pmApproval) || !KieFunctions.isTrue(hrApproval);</bpmn2:conditionExpression>
     </bpmn2:sequenceFlow>
     <bpmn2:sequenceFlow id="_51224244-33A1-4C63-8BD1-C7D50C18152C" drools:selectable="true" color:background-color="#000000" color:border-color="#000000" color:color="#000000" sourceRef="_5CB6F397-3FAB-4B78-8761-2A2FC9935379" targetRef="_73E0B7D8-E331-49D5-B91A-D1B4F518D86A"/>
     <bpmn2:sequenceFlow id="_FD187ED3-BEF5-49F4-8BB1-281517A263C0" drools:selectable="true" color:background-color="#000000" color:border-color="#000000" color:color="#000000" sourceRef="_9F3248DC-F5DC-4FF8-807E-805EA1862239" targetRef="_73E0B7D8-E331-49D5-B91A-D1B4F518D86A"/>
@@ -307,138 +307,138 @@ kcontext.setVariable(&quot;result&quot;,&quot;Reward *NOT* Approved!&quot;);</bp
     <bpmndi:BPMNPlane id="_EfZX8YtbEeWVyOhEM94E_w" bpmnElement="com.sample.rewards-basic">
       <bpmndi:BPMNShape id="_EfZX8otbEeWVyOhEM94E_w" bpmnElement="_0CEBD800-AB15-452D-A0DD-C2D4B90B39D1">
         <dc:Bounds height="28.0" width="28.0" x="888.0" y="245.0"/>
-        <bpmndi:BPMNLabel>
+        <bpmndi:BPMNLabel id="BPMNLabel_1">
           <dc:Bounds height="15.0" width="26.0" x="889.0" y="273.0"/>
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="_EfZX84tbEeWVyOhEM94E_w" bpmnElement="_82A0B03A-B807-44B8-92FD-3B2BE025BD50">
         <dc:Bounds height="48.0" width="144.0" x="144.0" y="135.0"/>
-        <bpmndi:BPMNLabel>
+        <bpmndi:BPMNLabel id="BPMNLabel_2">
           <dc:Bounds height="15.0" width="82.0" x="175.0" y="151.0"/>
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="_EfZX9ItbEeWVyOhEM94E_w" bpmnElement="_C9A1C5C4-D383-40B1-B0A6-FB1292671C59">
         <dc:Bounds height="48.0" width="133.0" x="150.0" y="235.0"/>
-        <bpmndi:BPMNLabel>
+        <bpmndi:BPMNLabel id="BPMNLabel_3">
           <dc:Bounds height="15.0" width="83.0" x="175.0" y="251.0"/>
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="_EfZX9YtbEeWVyOhEM94E_w" bpmnElement="_6D0CF521-E9B4-4FA9-A9DE-2F785541416D">
         <dc:Bounds height="75.0" width="83.0" x="760.0" y="221.0"/>
-        <bpmndi:BPMNLabel>
+        <bpmndi:BPMNLabel id="BPMNLabel_4">
           <dc:Bounds height="30.0" width="57.0" x="773.0" y="243.0"/>
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="_EfZX-otbEeWVyOhEM94E_w" bpmnElement="_9F3248DC-F5DC-4FF8-807E-805EA1862239">
         <dc:Bounds height="80.0" width="100.0" x="505.0" y="105.0"/>
-        <bpmndi:BPMNLabel>
+        <bpmndi:BPMNLabel id="BPMNLabel_5">
           <dc:Bounds height="15.0" width="97.0" x="506.0" y="137.0"/>
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="_EfZX_ItbEeWVyOhEM94E_w" bpmnElement="_5CB6F397-3FAB-4B78-8761-2A2FC9935379">
         <dc:Bounds height="80.0" width="100.0" x="505.0" y="340.0"/>
-        <bpmndi:BPMNLabel>
+        <bpmndi:BPMNLabel id="BPMNLabel_6">
           <dc:Bounds height="30.0" width="68.0" x="521.0" y="365.0"/>
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="_EfZ_BItbEeWVyOhEM94E_w" bpmnElement="_73E0B7D8-E331-49D5-B91A-D1B4F518D86A" isMarkerVisible="true">
         <dc:Bounds height="40.0" width="40.0" x="670.0" y="239.0"/>
-        <bpmndi:BPMNLabel/>
+        <bpmndi:BPMNLabel id="BPMNLabel_7"/>
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="_EfZ_BYtbEeWVyOhEM94E_w" bpmnElement="_E3A8A067-690D-49B2-AA0F-BD7D6A23F55F" isMarkerVisible="true">
         <dc:Bounds height="40.0" width="40.0" x="405.0" y="239.0"/>
-        <bpmndi:BPMNLabel/>
+        <bpmndi:BPMNLabel id="BPMNLabel_8"/>
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="_EfZ_BotbEeWVyOhEM94E_w" bpmnElement="_5E4E0C41-8A60-4AA4-B8A8-D1B9B176EE49">
         <dc:Bounds height="30.0" width="30.0" x="30.0" y="144.0"/>
-        <bpmndi:BPMNLabel>
+        <bpmndi:BPMNLabel id="BPMNLabel_9">
           <dc:Bounds height="15.0" width="25.0" x="32.0" y="174.0"/>
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="_EfZ_B4tbEeWVyOhEM94E_w" bpmnElement="_F02D717D-F5F3-4E58-84AA-F6FD2929350A">
         <dc:Bounds height="94.0" width="234.0" x="660.0" y="33.0"/>
-        <bpmndi:BPMNLabel>
+        <bpmndi:BPMNLabel id="BPMNLabel_10">
           <dc:Bounds height="88.0" width="222.0" x="666.0" y="36.0"/>
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="_EfZ_CItbEeWVyOhEM94E_w" bpmnElement="_57A58587-4A48-48C3-8474-1D571DDC17DA">
         <dc:Bounds height="94.0" width="253.0" x="650.0" y="405.0"/>
-        <bpmndi:BPMNLabel>
+        <bpmndi:BPMNLabel id="BPMNLabel_11">
           <dc:Bounds height="88.0" width="241.0" x="656.0" y="408.0"/>
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="_EfZ_CYtbEeWVyOhEM94E_w" bpmnElement="_2DCC27DB-F82B-49D0-AF9F-3E539BE9CD56">
         <dc:Bounds height="50.0" width="100.0" x="270.0" y="55.0"/>
-        <bpmndi:BPMNLabel>
+        <bpmndi:BPMNLabel id="BPMNLabel_12">
           <dc:Bounds height="44.0" width="88.0" x="276.0" y="58.0"/>
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="_EfZ_CotbEeWVyOhEM94E_w" bpmnElement="_AD1EAEA5-B2A6-4178-BBDE-E095B2BC5CD3">
         <dc:Bounds height="50.0" width="100.0" x="285.0" y="330.0"/>
-        <bpmndi:BPMNLabel>
+        <bpmndi:BPMNLabel id="BPMNLabel_13">
           <dc:Bounds height="44.0" width="88.0" x="291.0" y="333.0"/>
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="_EfZ_C4tbEeWVyOhEM94E_w" bpmnElement="_7015FD61-7BE4-4078-A491-BFA636B86239">
         <dc:Bounds height="71.0" width="129.0" x="60.0" y="45.0"/>
-        <bpmndi:BPMNLabel>
+        <bpmndi:BPMNLabel id="BPMNLabel_14">
           <dc:Bounds height="65.0" width="117.0" x="66.0" y="48.0"/>
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="_EfamEItbEeWVyOhEM94E_w" bpmnElement="_98098CA3-553E-4D21-89E4-C79BC4A65803">
         <dc:Bounds height="61.0" width="108.0" x="345.0" y="114.0"/>
-        <bpmndi:BPMNLabel>
+        <bpmndi:BPMNLabel id="BPMNLabel_15">
           <dc:Bounds height="55.0" width="96.0" x="351.0" y="117.0"/>
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
       <bpmndi:BPMNEdge id="_EfZX9otbEeWVyOhEM94E_w" bpmnElement="_80B4F649-D413-42BF-913C-8A0D5466E66F" sourceElement="_EfZ_BotbEeWVyOhEM94E_w" targetElement="_EfZX84tbEeWVyOhEM94E_w">
         <di:waypoint xsi:type="dc:Point" x="45.0" y="159.0"/>
         <di:waypoint xsi:type="dc:Point" x="216.0" y="159.0"/>
-        <bpmndi:BPMNLabel/>
+        <bpmndi:BPMNLabel id="BPMNLabel_16"/>
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="_EfZX94tbEeWVyOhEM94E_w" bpmnElement="_A6AF0278-BF5D-4FB0-8D9D-83C4732E82B3" sourceElement="_EfZX84tbEeWVyOhEM94E_w" targetElement="_EfZX9ItbEeWVyOhEM94E_w">
         <di:waypoint xsi:type="dc:Point" x="216.0" y="159.0"/>
         <di:waypoint xsi:type="dc:Point" x="216.5" y="259.0"/>
-        <bpmndi:BPMNLabel/>
+        <bpmndi:BPMNLabel id="BPMNLabel_17"/>
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="_EfZX-ItbEeWVyOhEM94E_w" bpmnElement="_CD9D6F6C-948F-41DB-B5A8-70D93CF87FD4" sourceElement="_EfZX9YtbEeWVyOhEM94E_w" targetElement="_EfZX8otbEeWVyOhEM94E_w">
         <di:waypoint xsi:type="dc:Point" x="801.5" y="258.5"/>
         <di:waypoint xsi:type="dc:Point" x="902.0" y="259.0"/>
-        <bpmndi:BPMNLabel/>
+        <bpmndi:BPMNLabel id="BPMNLabel_18"/>
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="_EfZX-YtbEeWVyOhEM94E_w" bpmnElement="_F343CC62-587D-436B-BE2F-C86AD1306262" sourceElement="_EfZX9ItbEeWVyOhEM94E_w" targetElement="_EfZ_BYtbEeWVyOhEM94E_w">
         <di:waypoint xsi:type="dc:Point" x="216.5" y="259.0"/>
         <di:waypoint xsi:type="dc:Point" x="425.0" y="259.0"/>
-        <bpmndi:BPMNLabel/>
+        <bpmndi:BPMNLabel id="BPMNLabel_19"/>
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="_EfZX-4tbEeWVyOhEM94E_w" bpmnElement="_3A261F6D-A61C-4592-A15F-AD114801FDAB" sourceElement="_EfZ_BYtbEeWVyOhEM94E_w" targetElement="_EfZX-otbEeWVyOhEM94E_w">
         <di:waypoint xsi:type="dc:Point" x="425.0" y="259.0"/>
         <di:waypoint xsi:type="dc:Point" x="555.0" y="145.0"/>
-        <bpmndi:BPMNLabel>
+        <bpmndi:BPMNLabel id="BPMNLabel_20">
           <dc:Bounds height="15.0" width="51.0" x="450.0" y="213.0"/>
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="_EfZ_AItbEeWVyOhEM94E_w" bpmnElement="_16A5C5D9-AD16-4498-A2D2-026A9D7842B6" sourceElement="_EfZ_BYtbEeWVyOhEM94E_w" targetElement="_EfZX_ItbEeWVyOhEM94E_w">
         <di:waypoint xsi:type="dc:Point" x="425.0" y="259.0"/>
         <di:waypoint xsi:type="dc:Point" x="555.0" y="380.0"/>
-        <bpmndi:BPMNLabel>
+        <bpmndi:BPMNLabel id="BPMNLabel_21">
           <dc:Bounds height="15.0" width="71.0" x="440.0" y="311.0"/>
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="_EfZ_AYtbEeWVyOhEM94E_w" bpmnElement="_51224244-33A1-4C63-8BD1-C7D50C18152C" sourceElement="_EfZX_ItbEeWVyOhEM94E_w" targetElement="_EfZ_BItbEeWVyOhEM94E_w">
         <di:waypoint xsi:type="dc:Point" x="555.0" y="380.0"/>
         <di:waypoint xsi:type="dc:Point" x="690.0" y="259.0"/>
-        <bpmndi:BPMNLabel/>
+        <bpmndi:BPMNLabel id="BPMNLabel_22"/>
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="_EfZ_AotbEeWVyOhEM94E_w" bpmnElement="_FD187ED3-BEF5-49F4-8BB1-281517A263C0" sourceElement="_EfZX-otbEeWVyOhEM94E_w" targetElement="_EfZ_BItbEeWVyOhEM94E_w">
         <di:waypoint xsi:type="dc:Point" x="555.0" y="145.0"/>
         <di:waypoint xsi:type="dc:Point" x="690.0" y="259.0"/>
-        <bpmndi:BPMNLabel/>
+        <bpmndi:BPMNLabel id="BPMNLabel_23"/>
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="_EfZ_A4tbEeWVyOhEM94E_w" bpmnElement="_9F303A8E-4FFA-4B1D-9824-C1426819892F" sourceElement="_EfZ_BItbEeWVyOhEM94E_w" targetElement="_EfZX9YtbEeWVyOhEM94E_w">
         <di:waypoint xsi:type="dc:Point" x="690.0" y="259.0"/>
         <di:waypoint xsi:type="dc:Point" x="801.5" y="258.5"/>
-        <bpmndi:BPMNLabel/>
+        <bpmndi:BPMNLabel id="BPMNLabel_24"/>
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="_EfamEYtbEeWVyOhEM94E_w" bpmnElement="_326277F5-A4A0-4FE4-B1D1-012FBB45BD18" sourceElement="_EfZX-otbEeWVyOhEM94E_w" targetElement="_EfZ_B4tbEeWVyOhEM94E_w">
         <di:waypoint xsi:type="dc:Point" x="555.0" y="145.0"/>
