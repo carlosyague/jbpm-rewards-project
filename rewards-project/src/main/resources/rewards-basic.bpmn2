@@ -222,7 +222,7 @@ kcontext.setVariable(&quot;result&quot;,&quot;Reward *NOT* Approved!&quot;);</bp
           <drools:metaValue><![CDATA[not approved]]></drools:metaValue>
         </drools:metaData>
       </bpmn2:extensionElements>
-      <bpmn2:conditionExpression xsi:type="bpmn2:tFormalExpression" id="_EfYw4ItbEeWVyOhEM94E_w">return  !KieFunctions.isTrue(pmApproval) || !KieFunctions.isTrue(hrApproval);</bpmn2:conditionExpression>
+      <bpmn2:conditionExpression xsi:type="bpmn2:tFormalExpression" id="_EfYw4ItbEeWVyOhEM94E_w" language="http://www.java.com/java">return  KieFunctions.isFalse(pmApproval) || KieFunctions.isFalse(hrApproval);</bpmn2:conditionExpression>
     </bpmn2:sequenceFlow>
     <bpmn2:sequenceFlow id="_51224244-33A1-4C63-8BD1-C7D50C18152C" drools:selectable="true" color:background-color="#000000" color:border-color="#000000" color:color="#000000" sourceRef="_5CB6F397-3FAB-4B78-8761-2A2FC9935379" targetRef="_73E0B7D8-E331-49D5-B91A-D1B4F518D86A"/>
     <bpmn2:sequenceFlow id="_FD187ED3-BEF5-49F4-8BB1-281517A263C0" drools:selectable="true" color:background-color="#000000" color:border-color="#000000" color:color="#000000" sourceRef="_9F3248DC-F5DC-4FF8-807E-805EA1862239" targetRef="_73E0B7D8-E331-49D5-B91A-D1B4F518D86A"/>
